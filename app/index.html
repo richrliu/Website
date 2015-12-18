@@ -1,0 +1,622 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Polymer Starter Kit" />
+  <title>Richard Liu</title>
+  <!-- Place favicon.ico in the `app/` directory -->
+
+  <!-- Chrome for Android theme color -->
+  <meta name="theme-color" content="#2E3AA1">
+
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>  
+
+  <!-- Tile color for Win8 -->
+  <meta name="msapplication-TileColor" content="#3372DF">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="PSK">
+  <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Polymer Starter Kit">
+  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+  <!-- Tile icon for Win8 (144x144) -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild-->
+
+  <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <!-- endbuild -->
+
+  <!-- will be replaced with elements/elements.vulcanized.html -->
+  <link rel="import" href="elements/elements.html">
+  <!-- endreplace-->
+
+  <!-- For shared styles, shared-styles.html import in elements.html -->
+  <style is="custom-style" include="shared-styles"></style> 
+
+</head>
+
+<body unresolved class="fullbleed layout vertical">
+  <span id="browser-sync-binding"></span>
+  <template is="dom-bind" id="app">
+
+    <paper-drawer-panel id="paperDrawerPanel">
+      <!-- Drawer Scroll Header Panel -->
+      <paper-scroll-header-panel drawer fixed>
+
+        <!-- Drawer Toolbar -->
+        <paper-toolbar id="drawerToolbar">
+          <span class="paper-font-title">Navigation</span>          
+          <paper-button onclick="closePanel()" id="paperDrawerPanelToggler">Hide</paper-button>
+          <script>
+          function closePanel(){
+            var drawerPanel = document.querySelector('#paperDrawerPanel');
+            drawerPanel.forceNarrow = true;
+            drawerPanel.closeDrawer();
+          }
+          </script>
+        </paper-toolbar>
+
+        <!-- Drawer Content -->
+        <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
+          <a data-route="home" href="/" on-click="onDataRouteClick">
+            <iron-icon icon="home"></iron-icon>
+            <span>Home</span>
+          </a>
+
+          <a data-route="about" href="/about" on-click="onDataRouteClick">
+            <iron-icon icon="assignment-ind"></iron-icon>
+            <span>About</span>
+          </a>
+
+          <a data-route="courses" href="/courses" on-click="onDataRouteClick">
+            <iron-icon icon="account-balance"></iron-icon>
+            <span>Courses and Resume</span>
+          </a>
+
+          <a data-route="projects" href="/projects" on-click="onDataRouteClick">
+            <iron-icon icon="class"></iron-icon>
+            <span>Projects</span>
+          </a>
+
+          <a data-route="media" href="/media" on-click="onDataRouteClick">
+            <iron-icon icon="chrome-reader-mode"></iron-icon>
+            <span>Books, Music and Media</span>
+          </a>
+
+          <a data-route="contact" href="/contact" on-click="onDataRouteClick">
+            <iron-icon icon="mail"></iron-icon>
+            <span>Contact Me</span>
+          </a>
+        </paper-menu>
+      </paper-scroll-header-panel>
+
+      <!-- Main Area -->
+      <paper-scroll-header-panel main condenses keep-condensed-header>
+
+        <!-- Main Toolbar -->
+        <paper-toolbar id="mainToolbar" class="tall">
+          <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+          <span class="flex"></span>
+
+          <!-- Toolbar icons -->
+          <a href="mailto:richard.liu@duke.edu" id="button"><iron-icon icon="mail"></iron-icon></a>
+          <!--<paper-icon-button icon="search"></paper-icon-button> -->
+
+          <!-- Application name -->
+          <div class="middle middle-container center horizontal layout">
+            <div class="app-name">Richard Liu</div>
+          </div>
+          
+          <!-- Application sub title -->
+          <div class="bottom bottom-container center horizontal layout">
+            <div class="bottom-title paper-font-subhead">Duke University '17. Aspirations: software engineer, signals processing Ph.D, entrepreneur</div>
+          </div>
+
+          <!-- <paper-tabs selected="0" class="bottom self-end" attr-for-selected="data-route" selected="[[route]]">
+
+            <paper-tab>Home</paper-tab>
+            <paper-tab>About</paper-tab>
+            <paper-tab>Courses and Resume</paper-tab>
+            <paper-tab>Books, Music and Media</paper-tab>
+            <paper-tab>Contact Me</paper-tab>
+
+          </paper-tabs> -->
+
+      <div class="bottom flex"></div>
+
+        </paper-toolbar>
+
+        <!-- Main Content -->
+        <div class="content" id="{{route}}">
+          <iron-pages attr-for-selected="data-route" selected="{{route}}">
+
+          <section data-route="home">
+            <div class="fullwidth">
+              <div class="section-container">
+                <h2 class="page-title">Hi, I'm Richard!</h2>
+
+                <center>
+                  <!-- <img src="./images/richard/richardLinkedin.jpg" height="400px"></img> -->
+                </center>
+                <p>
+                  If you are looking for Richard, the aspiring software engineer and future Ph.D hopeful, then you're in the right place.
+                </p>
+                <p>
+                  I want my website to be more than just a stylish resume. This is the story of my life and I hope that you learn who I am rather than what I've done.
+                </p>
+                <p>
+                  You can find navigate using the sliding nav-bar on the left, or if that's not working for you, here are appropriate links:
+                  <br>
+                  <br>
+                  <a href="./about"><text>About Me</text></a> 
+                  <br>
+                  <a href="./courses"><text>Courses and Resume</text></a>
+                  <br>
+                  <a href="./media"><text>Books, Music, Media</text></a>
+                  <br>
+                  <a href="./contact"><text>Contact Me</text></a>
+                </p>
+              </div>
+            </div>
+            <div class="push"></div>
+          </section>
+
+          <section data-route="about">
+            <div class="fullwidth" id="about">
+              <div class="section-container">
+                <h2 class="page-title">About Me</h2>
+                <p>
+                  My name is Richard Liu and I am a third-year Electrical and Computer Engineering and Computer Science student at Duke University. I like to read books, write code and share my life with others, and on this page I hope to show you who I am.
+                </p>
+                <center>
+                  <img src="./images/richard/githubSF.jpg" height="500px"></img>
+                  <p>Visiting Github in SF.</p>
+                </center>
+              </div>
+
+              <hr>
+
+              <div class="section-container">
+                <h2 class="page-title">TL;DR</h2>
+                <p>
+                  I was born on August 7th, 1996 in Toronto, Ontario. Afterwards, I moved to Pomona Village, NY, but my family moved around for a bit until we settled down in Lawrenceville, New Jersey, where I spent nine years of my life. I attended Lawrence High School. I am now at Duke University and I plan to be a software engineer, and eventually complete a Ph.D in signals processing.
+                </p>
+
+                  <center>
+                  <google-map latitude="37.77493" longitude="-122.41942" fit-to-markers>
+                    <google-map-marker latitude="43.660377" longitude="-79.386318"
+                        draggable="true" title="aboutMeMap">I was born in Women's College Hospital in Toronto on August 7, 1996, and lived in Canada for over 5 years.</google-map-marker>
+                    <google-map-marker latitude="41.208979" longitude="-74.015650">I moved to Pomona, NY in August 2001. My first ever American school was Thiells Elementary School.</google-map-marker>
+                    <google-map-marker latitude="41.013772" longitude="-73.877540">I lived in Dobbs Ferry, NY from 2003-2004.</google-map-marker>
+                    <google-map-marker latitude="40.276887" longitude="-74.679721">From August 2004 onward, we lived in Lawrenceville, NJ. I went to Lawrence High School and worked at the nearby Kumon Center. My favorite place to eat here was Michael's Diner.</google-map-marker>
+                    <google-map-marker latitude="36.000593" longitude="-78.937424">I currrently go to Duke University! I study numbers and computers and stuff here.</google-map-marker>
+                    <google-map-marker latitude="40.608326" longitude="-75.376255">From 8th grade to 11th grade, I was part of the Lehigh Valley Math Team. We competed in ARML, HMMT and PUMaC, and being a part of a great team with top-notch mathletes has left an indelible impression on me.</google-map-marker>
+                    <google-map-marker latitude="40.345526" longitude="-74.653197">At Princeton, I took the most challenging and thought-provoking course of my pre-college years - a number theory class called "Numbers, Equations and Proofs".</google-map-marker>
+                  </google-map>
+                </center>
+              </div>
+              <hr>
+
+              <div class="section-container">
+                <h2 class="page-title">Academic Interests</h2>
+                <p>
+                  My education  at Duke has been exceptional - I couldn't have asked for a more diverse and challenging experience in college. My academic interests include:
+                    <li> Machine Learning </li>
+                    <li> Software Development </li>
+                    <li> Statistical Signals Processing and Data Mining </li>
+                    <li> Speech Processing </li>
+                    <li> Competitive Math </li>
+                </p>
+              </div>
+
+              <hr>
+
+              <div class="section-container">
+                <h2 class="page-title">High School</h2>
+                <p>
+                  I attended <a href="https://en.wikipedia.org/wiki/Lawrence_High_School_(New_Jersey)">Lawrence High School</a> in Lawrenceville, NJ. Some of my achievements include:
+                  <center>
+                  <div class="width80">
+                    <li><b>STEM Club</b> - President. I organized over a hundred students to engage with the community to spread STEM education through fun, interactive events and volunteering at STEM-related activities. Some notable events included our annual themed science nights, such as <a href="http://patch.com/new-jersey/lawrenceville/lawrence-high-to-host-willy-wonka-science-night">Willy Wonka Science Night</a>, where K-8 students came to learn about science related to themes like Harry Potter, Willy Wonka or Superheros.</li>
+                    <li><b>Robotics Club</b> - Founder. I forged relationships with nearby corporations to send engineers to teach club members engineering skills, and wrote grants to NASA to secure thousands of dollars in funding. I also helped lay the groundwork for two robotics courses that are currently being offered.</li>
+                    <li><b>Lehigh Valley Math Team</b> - Member, Squad Leader, Co-captain. I was a member of the <a href="http://www.lehigh.edu/~dmd1/arml.html">Lehigh Valley Math Team</a> (Ice/Lightning Team) for four years, participating in the ARML, HMMT and PUMaC competitions.</li>
+                    <li><b>Model United Nations</b>.</li>
+                    <li><b>National Honor Society</b>.</li>
+                    <li>Graduated in the top 10 of my class.</li>
+                  </div>
+                  </center>
+                </p>
+              </div>
+
+              <hr>
+
+              <div class="section-container">
+                <h2 class="page-title">Educational Outreach</h2>
+                <p>
+                  Participating in educational outreach has been an invaluable part of my life. Throughout high school, I would never pass up an opportunity to provide educational assistance to younger students, whether that be through the STEM Club, National Honor Society or working at the Kumon Learning Center. 
+                </p>
+                <p>
+                  In college, I have been part of the Boeing Fellows program, where I spend two days per week going out to public schools and teaching fifth-graders about topics in science and engineering, with an emphasis on hands-on activities. 
+                </p>
+                <p>
+                  I have taught over 300 elementary and middle school students in Lawrence Middle School, Lawrence Elementary School, Eldridge Elementary School, Slackwood Elementary School, Ben Franklin Elementary School (NJ), Merrick Moore Elementary School and Central Elementary School (NC).
+                </p>
+                <center>
+                  <img src="./images/richard/eduOutreach.jpg" height="400px" ></img>
+                  <p>
+                  Working on a hands-on project with students at Central Elementary School (NC).
+                  </p>
+                </center>
+              </div>
+
+              <hr>
+
+              <div class="section-container">
+              <h2 class="page-title">Soccer and Other Sports</h2>
+                <p>
+                  My biggest obsession (by far) is soccer. I have played intramural 7-on-7 soccer for three seasons and made it to the finals in two of those. 
+                </p>
+                <p>
+                  Manchester United is my favorite team - I am a die-hard red devil! My favorite players are Park Ji-Sung and Roy Keane. In fact, I wrote my college essay about Roy Keane! It is my dream to go to a Manchester United game at Old Trafford.
+                </p>
+                <p>
+                  I also support the New York Red Bulls, Duke football and basketball (of course), and Andy Murray in tennis.
+                </p>
+              </div>
+            </div>
+            <div class="push"></div>
+          </section>
+
+          <section data-route="media">
+            <div class="fullwidth">
+              <div class="section-container">
+                <h2 class="page-title">Books</h2>
+                Reading has been my favorite pastime for as long as I can remember. Books can be an infinite source of wisdom, a way to explore another world, or an exciting story with great characters. I mainly read nonfiction nowadays (big fan of Michael Lewis!) but I'll read just about anything that grips my attention.
+                <div class="enclosing-box">
+                  <div class="inline-box-L">
+                    <h3 class="page-subtitle">Currently Reading</h3>
+                    <p>
+                      <li><i>The Three Body Problem</i> by Liu Cixin</li>
+                      <li><i>Inverting the Pyramid (Soccer)</i> by Jonathan Wilson</li>
+                    </p>
+                  </div>
+
+                  <div class="inline-box-R">
+                    <h3 class="page-subtitle">Recently Read</h3>
+                    <p>
+                      <li><i>The Martian</i> by Andy Weir</li>
+                      <li><i>Breakfast at Tiffany's</i> by Truman Capote</li>
+                    </p>
+                  </div>
+                </div>
+
+                  <div class="enclosing-box">
+                    <h3 class="page-subtitle">Favorite Books</h3>
+                    <div class="inline-box-L">
+                    <p>
+                      <li><i>A Tale of Two Cities</i> by Charles Dickens</li>
+                      <li><i>Moneyball</i> by Michael Lewis</li>
+                      <li><i>Flash Boys - A Wall Street Revolt</i> by Michael Lewis</li>
+                      <li><i>Starship Troopers</i> by Robert A. Heinlein</li>
+                    </p>
+                  </div>
+                  <div class="inline-box-R">
+                    <p>
+                      <li><i>All the Pretty Horses</i> by Cormac McCarthy</li>
+                      <li><i>The Damned United</i> by David Peace</li>
+                      <li><i>The Book Thief</i> by Markus Zusak</li>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="section-container">
+                <h2 class="page-title">Music</h2>
+                <p>
+                  When people ask me what genre of music I like, I often respond with "all genres, as long as the music is good!" I generally like 90's rock, hip-hop and indie rock. My all-time favorite album has to be <i>Blue</i> by Third Eye Blind.
+                </p>
+                <center>
+                <h3 class="page-subtitle">What I'm Listening To</h3>
+                <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3A1249879845%3Aplaylist%3A5v0IDFYmn8TnXlyVnIRZ48&view=coverart" height="380" frameborder="0" allowtransparency="true"></iframe>
+               </center>
+             </div>
+
+             <hr>
+
+             <div class="section-container">
+              <h2 class="page-title">Film and TV</h2>
+              <h3 class="page-subtitle">Movies</h3>
+              <p>
+              I watched a lot of movies in high school, with my favorites being <i>The Good, The Bad, and the Ugly (1966)</i>, <i>The Matrix (1999)</i>, <i>Infernal Affairs (2002)</i>, <i>Children of Men (2006)</i> and <i>Superbad (2007)</i>.
+              </p>
+              <h3 class="page-subtitle">Television</h3>
+              <p>
+                For TV shows, my all-time favorite is <i>Entourage</i>. I currently keep up with <i>Game of Thrones</i>.
+              </p>
+            </div>
+
+            <hr>
+
+            <div class="section-container">
+              <p>
+                <h2 class="page-title">Suggestions?</h2>
+                If you have any suggestions for books, music, film or TV, please email me <a href="./contact">here</a>.
+              </p>
+            </div>
+            </div>
+            <div class="push"></div>
+          </section>
+
+
+            <section data-route="courses">
+              <div class="fullwidth" id="courses">
+                <div class="section-container">
+                  <p><h2 class="page-title">Coursework</h2></p>
+                  <div class="enclosing-box">
+                    <div class="inline-box-L">
+                      <p>
+                        <h1 class="page-subtitle">Electrical and Computer Engineering</h1>
+                        <li> Computational Methods in Engineering </li>
+                        <li> Fundamentals of Electrical and Computer Engineering </li>
+                        <li> Signals and Systems </li>
+                        <li> Electromagnetic Fields </li>
+                        <li> Microelectronic Devices and Circuits </li>
+                        <li> Random Signals and Noise </li>
+                        <li> Fundamentals of Digital Signals Processing </li>
+                        <li> Digital Image and Multidimensional Processing </li>
+                      </p>
+                    </div>
+
+                    <div class="inline-box-R">
+                      <p>
+                         <h1 class="page-subtitle">Mathematics</h1>
+                         <li> Multivariable Calculus </li>
+                         <li> Linear Algebra </li>
+                         <li> Ordinary and Partial Differential Equations </li>
+                         <li> Probability </li>
+                         <li> Numbers, Equations and Proofs (Princeton University) </li>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="enclosing-box">
+                    <div class="inline-box-L">
+                      <p>
+                         <h1 class="page-subtitle">Computer Science</h1>
+                         <li> Data Structures and Algorithms </li>
+                         <li> Computer Architecture </li>
+                         <li> Design and Analysis of Algorithms </li>
+                       </p>
+                      </div>
+
+                      <div class="inline-box-R">
+                        <p>
+                         <h1 class="page-subtitle">Economics</h1>
+                         <li> Intermediate Microeconomics </li>
+                         <li> Intermediate Microeconomics with Calculus </li>
+                         <li> Global Capital Markets </li>
+                       </p>
+                      </div>
+                     </div>
+                   </div>
+
+                   <hr>
+
+                  <div class="section-container">
+                    <h2 class="page-title">Resume</h2>
+                    <p>
+                      If your company has an opening for a software engineering intern, please read my resume and <a href="./contact">contact me</a> if you think I could be a good fit for your company!
+                    </p>
+
+                    <p>
+                      <a href="./pdf/RichardLiu_ResumeSoftware.pdf">Download here.</a>
+                    </p>
+                  </div>
+
+                  <hr>
+
+                  <div class="section-container">
+                    <h2 class="page-title">Technical Skills</h2>
+                    <p>
+                      <b>Proficient in: </b> Java, MATLAB, Python <br><br>
+                      <b>Experience with: </b> C, PHP, MySQL, Node.js, HTML/CSS, MongoDB
+                    </p>
+                  </div>
+
+                  <hr>
+
+                <p>
+                  <div class="section-container">
+                    <h2 class="page-title">Research</h2>
+                    I plan on attaining a Ph.D after experiencing the workforce for a few years. I am mostly interested in statistical signals processing, with which I have had experience at Duke. I am also interested in machine learning and data mining.
+                  </p>
+                  <p>
+                    I have contributed to two research papers:
+                    <li>Novel integrative virtual rehabilitation reduces symptomatology of primary progresive aphasia [International Journal of Neuroscience, 2014]</li>
+                    <li><a href="./pdf/2012RobotHideSeek.pdf">Robot Hide and Seek [NJ Governor's School of Engineering and Technology 2012]</a></li>
+                  </p>
+                </div>
+              </div>
+              <div class="push"></div>
+            </section>
+
+             <section data-route="projects">
+              <div class="fullwidth" id="projects">
+                <div class="section-container">
+                  <p><h2 class="page-title">Projects</h2></p>
+                  <p>
+                  Below I have listed some projects that I have completed. My GitHub username is <a href="https://github.com/richrliu">richrliu</a>, and I try to keep it as updated as possible although many of my projects have not been deployed due to NDA's, course policies, or lack of time. If you need more information, please <a href="mailto:richard.liu@duke.edu">email me</a>.</p>
+                </div>
+
+                <div class="section-container">
+                  <h2 class="page-subtitle">KingMaker</h2>
+                  <p>URL: <a href="http://kingmaker.meteor.com">kingmaker.meteor.com</a></p>
+                  <p>
+                    KingMaker is a Meteor.js web-app that uses facial recognition to process PayPal and credit card transactions. The computer vision software was written in C and the payments were processed by BrainTree API. For this project, I worked across the stack with an emphasis on front-end and middleware (HTML/CSS/JS). However, I also used my machine learning experience to give input on the computer vision side. This project was created at the Money20/20 Hackathon.
+                  </p>
+                </div>
+
+                <div class="section-container">
+                  <h2 class="page-subtitle">Duke Petitions</h2>
+                  <p>URL: <a href="https://petitions.colab.duke.edu">https://petitions.colab.duke.edu</a> (access retricted to Duke students)</p>
+                  <p>
+                    Duke Petitions is a centralized petitions platform where Duke students can log on and vote on issues relevant to campus life and academic affairs. This project was commissioned by Duke Student Government and is very close to launch. I worked across the stack on this app and helped a lot with API design. I used HTML/CSS/JS (Handlebars.js)/PHP for this app.
+                  </p>
+                </div>
+
+                <div class="section-container">
+                  <h2 class="page-subtitle">VersaMe speech activity detector (SAD)</h2>
+                  <p>
+                    For VersaMe Inc, I used MATLAB to create speech activity detection software as the culmination of a summer of research. I implemented a Hidden Markov Model to model speech/nonspeech with each state being represented by a mixture of four Gaussians. In the end, the error rate for this SAD was comparable to that of <a href="http://www-lium.univ-lemans.fr/diarization/doku.php/welcome">LIUM</a> and within 10-15% of <a href="http://shout-toolkit.sourceforge.net/use_case_diarization.html">SHoUT</a> (leading open source speech recognition toolkits). 
+                    <br><br>
+                    My final presentation can be found <a href="./pdf/21.8.2015.rlPresentation.pdf">here</a>.
+                    <br><br>
+                    Extras: I also delivered error visualization software (Python) and audio conversion software (Python), and contributed to metadata analysis software (Perl). 
+                  </p>
+                </div>
+
+                <div class="section-container">
+                  <h2 class="page-subtitle">Bright Cloud International Corp</h2>
+                  <p>
+                    In the summer after freshman year, I created a web-app for Bright Cloud International Corp to allow doctors and patients to log in and view dynamically modeled medical data. In accordance with NIH standards, I built the backend using PHP and MySQL, which stored medical data as well as secure login data. In addition to HTML/CSS/PHP/MySQL, I used to open source library <a href="http://jpgraph.net/">JpGraph</a> to perform many of the modeling operations.
+                  </p>
+                </div>
+
+                <div class="section-container">
+                  <h2 class="page-subtitle">Custom HashMap Implementation</h2>
+                  <p>URL: <a href="https://github.com/richrliu/CustomHashMap">https://github.com/richrliu/CustomHashMap</a></p>
+                  <p>
+                    For the application to the KPCB Engineering Fellows program, I implemented a fixed-size HashMap data structure using an array of LinkedLists in Java. My code, along with extensive test cases, can be found on GitHub.
+                  </p>
+                </div>
+
+                <div class="section-container">
+                  <h2 class="page-subtitle">Atlas</h2>
+                  <p>
+                    Atlas was a Polymer webapp that parses the text of a book and displays on a Google Map the various settings of the book. I worked mainly on backend (FireBase) and middleware. We used the <a href="http://dp.la/info/developers/codex/">DPLA API</a> to obtain book text and OpenCalais to parse the text. This was a project for Codex Hackathon.
+                  </p>
+                </div>
+
+                <div class="section-container">
+                  <h2 class="page-subtitle">Image Processing</h2>
+                  <p>
+                    For the class Digital Image and Multidimensional Processing, I have implemented several image-related functions in MATLAB. Some of them include:
+                    <li>Bayer Demosaicing</li>
+                    <li>Histogram Equalization</li>
+                    <li>Anti-Aliasing</li>
+                    <li>Fourier-domain Anti-Aliasing</li>
+                    <li>Non-Local Means denoising</li>
+                    <li>Bilateral Filtering denoising</li>
+                    <li>Gaussian denoising</li>
+                    <li>Hough Transforms</li>
+                  </p>
+                </div>
+
+                <div class="section-container">
+                  <h2 class="page-subtitle">TopCoder Problems</h2>
+                  <p>URL: <a href="https://github.com/richrliu/TopCoderProblems">https://github.com/richrliu/TopCoderProblems</a></p>
+                  <p>
+                    I have completed about 30 <a href="https://www.topcoder.com/">TopCoder</a> problems in Java, some of them for class. 
+                  </p>
+                </div>
+
+                <div class="section-container">
+                  <h2 class="page-subtitle">League of Legends Team Tactics</h2>
+                  <p>
+                    This is a data-gathering and statistical analysis tool for the online video game <i><a href="http://na.leagueoflegends.com/">League of Legends</a></i>. I used Riot API to obtain game data (data gathering) and Node.js to perform analysis. The front-end is yet to be built and the backend is built upon MongoDB. 
+                  </p>
+                </div>           
+              </div>
+
+              <div class="push"></div>     
+            </section>
+
+            <section data-route="contact">
+              <div class="fullwidth">
+                <div class="section-container">
+                  <h2 class="page-title">Contact Info</h2>
+                  <p>
+                  Thanks for viewing my webpage! If you need anything else from me, or you want to chat, feel free to drop me a line at <a href="mailto:richard.liu@duke.edu">richard.liu (at) duke.edu</a> or using the form below.
+                  </p>
+                  <div id="form">
+                    <form is="iron-form" name="contactform" method="post" action="./scripts/emailHandler.php">
+                      <paper-input type="text" name="name" label="Your Name"></paper-input>
+                      <paper-input type="text" name="email" label="Your Email"></paper-input>
+                      <paper-textarea name="message" label="Message" rows=5></paper-textarea>
+                      <center>
+                        <paper-input type="submit" value="Submit"></paper-button>
+                      </center>
+                    </form>
+
+                    <script language="JavaScript">
+                      var frmvalidator  = new Validator("contactform");
+                      frmvalidator.addValidation("name","req","Please provide your name");
+                      frmvalidator.addValidation("email","req","Please provide your email");
+                      frmvalidator.addValidation("email","email", "Please enter a valid email address");
+                    </script>
+                  </div>
+                  <p>Also, feel free to connect with me on FaceBook and LinkedIn.</p>
+                  <center>
+                    <a href="http://www.facebook.com/rich.r.liu"><img src="./images/social/fb.png" height="50px" width="50px"></img></a>  <a href="http://www.linkedin.com/in/richrliu"><img src="./images/social/linkedin.png" height="50px" width="50px"></img></a>
+                  </center>
+                </div>
+              </div>
+              
+            </section>
+          </iron-pages>
+        </div>
+      </paper-scroll-header-panel>
+    </paper-drawer-panel>
+
+    <!-- Uncomment next block to enable Service Worker support (1/2) -->
+    <!--
+    <paper-toast id="caching-complete"
+                 duration="6000"
+                 text="Caching complete! This app will work offline.">
+    </paper-toast>
+
+    <platinum-sw-register auto-register
+                          clients-claim
+                          skip-waiting
+                          on-service-worker-installed="displayInstalledToast">
+      <platinum-sw-cache default-cache-strategy="fastest"
+                         cache-config-file="cache-config.json">
+      </platinum-sw-cache>
+    </platinum-sw-register>
+    -->
+
+  </template>
+
+  <!-- build:js scripts/app.js -->
+  <script src="scripts/app.js"></script>
+  <!-- endbuild-->
+</body>
+
+</html>

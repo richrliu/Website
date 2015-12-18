@@ -1,0 +1,159 @@
+/*
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+*/
+
+body {
+  font-family: Oxygen, Arial, sans-serif;
+  color: #000000;
+}
+
+a{
+	color: #003366;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+footer {
+    background-color: orange;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    overflow:hidden;
+}
+
+form{
+	border:1px solid black;
+	padding: 30px;
+}
+
+a#button{
+	color: #ffffff;
+}
+
+.push{
+	height: 100px;
+}
+
+#mainToolbar{
+	background: #061A40;    
+	border-bottom: thick #ffffff;
+}
+
+google-map{
+	height: 400px;
+	width: 50%;
+	align: center;
+}
+
+paper-button{
+	background-color: #ffffff;
+}
+
+.section-container{
+	width:90%;
+	float: center;
+	margin: 0 auto;
+}
+
+.bottom-title{
+	text-align: center;
+	margin: auto;
+}
+
+.fullwidth{
+	margin-top: 15px;
+	width:90%;
+	float: center;
+	margin: 0 auto;
+  	background: rgba(223, 224, 242, 0.8);
+  	padding: 30px 0 30px 0;
+}
+
+.enclosing-box{
+	width: 100%;
+	overflow: auto;
+	margin-top: 10px;
+}
+
+.inline-box-L{
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
+	height: 100%;
+	float: left;
+
+}
+.inline-box-R{
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
+	height: 100%;
+	float: right;
+}
+
+#suggestionsButton, #suggestionsButtonFilm{
+	background: #ffffff;
+	border: #000000;
+}
+
+.width80 {
+	width: 90%;
+	text-align: left;
+}
+
+.content{
+	overflow: auto;
+}
+
+section{
+	margin-bottom: -142px;
+}
+
+section:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 142px; 
+}
+.site-footer {
+  background: orange;
+}
+
+.content#home{
+	background: url("../images/duke/duke.jpg");
+	background-repeat: repeat;
+	text-align: center;
+}
+
+.content#courses{
+	background: url("../images/duke/equad.jpg");
+	background-repeat: repeat;
+}
+
+.content#about{
+	background: url("../images/duke/chapel.jpg");
+	background-repeat: repeat;
+}
+
+.content#media{
+	background: url("../images/duke/library.jpg");
+	background-repeat: repeat;
+}
+
+.content#contact{
+	background: url("../images/duke/nyc.jpg");
+	background-repeat: repeat;
+}
+
+.content#projects{
+	background: url("../images/duke/ciemas.jpg");
+	background-repeat: repeat;
+}
